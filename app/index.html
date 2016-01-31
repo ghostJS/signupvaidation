@@ -1,0 +1,195 @@
+<!doctype html>
+<html ng-app="removeJS">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+<div class="container">
+
+
+      <div class="" ng-controller="kontroler1">
+<br><h1>Rejestracja</h1><br>
+        <form name="form" novalidate>
+          <div ng-show="form.$submitted">
+
+            <div ng-show="form.$valid" class="alert alert-success">
+              Gratulacje
+            </div>
+            <div ng-show="form.$invalid" class="alert alert-danger">
+              Coś poszło nie tak
+            </div>
+          </div>
+
+            <div class="form-group col-sm-12">
+
+              <label for="uName" class="col-sm-2">Login:</label>
+                <div class="col-sm-10">
+                  <input
+                  type="text"
+                  ng-model="user.name"
+                  required="required"
+                  name="uName"
+                  class="form-control">
+
+                  <div ng-show="form.$submitted || form.uName.$touched">
+                    <span ng-show="form.uName.$error.required"  class="text-danger">Musisz podać login</span>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="form-group col-sm-12">
+
+              <label for="uEmail" class="col-sm-2">Email:</label>
+                <div class="col-sm-10">
+                  <input
+                  type="email"
+                  ng-model="user.email"
+                  required="required"
+                  name="uEmail"
+                  class="form-control">
+
+                  <div ng-show="form.$submitted || form.uEmail.$touched">
+                    <span ng-show="form.uEmail.$error.required"  class="text-danger">Musisz podać email</span>
+                    <span ng-show="form.uEmail.$error.email"  class="text-danger">Podany email jest niepoprawny</span>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="form-group col-sm-12">
+
+              <label for="uPhone" class="col-sm-2">Phone:</label>
+                <div class="col-sm-10">
+                  <input
+                  type="text"
+                  ng-model="user.phone"
+                  required="required"
+                  name="uPhone"
+                  pattern="\d{3}-\d{3}-\d{3}"
+                  class="form-control">
+
+                  <div ng-show="form.$submitted || form.uPhone.$touched">
+                    <span ng-show="form.uPhone.$error.required"  class="text-danger">Musisz podać numer telefonu</span>
+                    <span ng-show="form.uPhone.$error.pattern"  class="text-danger">Podany numer telefonu jest niepoprawny podaj XXX-XXX-XXX</span>
+                  </div>
+                </div>
+
+            </div>
+            <div class="form-group col-sm-12">
+
+              <label for="uSelect" class="col-sm-2">Select:</label>
+                <div class="col-sm-10">
+                  <select
+                  type="text"
+                  ng-model="user.select"
+                  required="required"
+                  name="uSelect"
+                  class="form-control">
+                    <option>1. Name</option>
+                    <option>2. Name</option>
+                    <option>3. Name</option>
+                </select>
+
+                  <div ng-show="form.$submitted || form.uSelect.$touched">
+                    <span ng-show="form.uSelect.$error.required"  class="text-danger">Musisz wybrać wartość z listy</span>
+                  </div>
+                </div>
+
+            </div>
+            <div class="form-group col-sm-12">
+
+              <label for="uAmount" class="col-sm-2">Quantity:</label>
+                <div class="col-sm-10">
+                  <input
+                  type="number"
+                  ng-model="user.amount"
+                  required="required"
+                  name="uAmount"
+                  min="1"
+                  max="20"
+                  class="form-control">
+
+                  <div ng-show="form.$submitted || form.uAmount.$touched">
+                    <span ng-show="form.uAmount.$error.required"  class="text-danger">Musisz podać wartość</span>
+                    <span ng-show="form.uAmount.$error.min"  class="text-danger">Minimalna ilość 1</span>
+                    <span ng-show="form.uAmount.$error.max"  class="text-danger">Maksymalna ilość 20</span>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="form-group col-sm-12">
+
+
+
+              <label for="uCheck" class="col-sm-2">Confirm:</label>
+                <div class="col-sm-10">
+                  <input
+                  type="checkbox"
+                  ng-model="user.check"
+                  required="required"
+                  name="uCheck"
+                  > Akceptuję regulamin
+
+                  <div ng-show="form.$submitted || form.uCheck.$touched">
+                    <span ng-show="form.uCheck.$error.required"  class="text-danger">Zatwierdź regulamin</span>
+                  </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12">
+
+              <button class="btn btn-success col-sm-12" ng-model="zapisz">
+                Zapisz się
+              </button>
+
+            </div>
+
+
+        </form>
+
+      </div>
+
+</div>
+  </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+
+</body>
+
+
+</html>
